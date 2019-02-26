@@ -1,3 +1,6 @@
+// Manthan shah
+// 300990910
+// Midterm exam
 let mongoose = require('mongoose');
 
 // create a model class

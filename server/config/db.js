@@ -1,6 +1,10 @@
+// Manthan shah
+// 300990910
+// Midterm exam
+
 module.exports = {
   //local MongoDB deployment ->
-  "URI": "mongodb://localhost/manthan"
+ // "URI": "mongodb://localhost/manthan"
   //Remote MongoDB deployment -> let 
-  //"URI" :"mongodb://thomas:123456@ds161059.mlab.com:61059/books308"
+  "URI" :"mongodb://manthan:manthan123@ds127962.mlab.com:27962/books"
 };
