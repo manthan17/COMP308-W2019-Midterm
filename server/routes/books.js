@@ -25,35 +25,44 @@ router.get('/', (req, res, next) => {
 
 //  GET the Book Details page in order to add a new Book
 router.get('/details', (req, res, next) => {
+  book.find((err, books) => {
+    if(err) {
+      return console.error(err);
+  }
+
+  else {
+     console.log(books);
+  
     res.render('books/details', {
     title: 'Book Details',
     books: book
-});
-
+    });
+  }
 });
 
 // POST process the Book Details page and create a new Book - CREATE
-// router.post('/details', (req, res, next) => {
-// console.log(req.body);
+router.post('/details', (req, res, next) => {
+console.log(req.body);
 
-//     let newBook = BookDetails({
-//       "title":req.body.title,
-//       "description":req.body.description,
-//       "price":req.body.price,
-//       "author":req.body.author,
-//       "genre":req.body.genre
-//     });
+     let newBook = book({
+       "name":req.body.NameTextField,
+       "price":req.body.PriceTextField,
+       "author":req.body.AuthorTextField,
+       "genre":req.body.GenreTextField
+     });
 
-//     BookDetails.create(newBook,(err,BookDetails)=> {
-//       if(err){
-//         console.log(err);
-//         res.end(err);
-//       }
-//       else{
-//         res.redirect('/books');
-//       }
-//     })
-// });
+     book.create(newBook,(err, book)=> {
+
+       if(err){
+        console.log("no");
+         console.log(err);
+         res.end(err);
+       }
+       else{
+         res.redirect('/books');
+       }
+     })
+ });
 
 // GET the Book Details page in order to edit an existing Book
 router.get('/:id', (req, res, next) => {
